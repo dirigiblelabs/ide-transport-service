@@ -10,8 +10,13 @@ angular.module('ideTransport', [])
                 $window.open(url, '_blank');
             }.bind(this);
 
+            let getProjectImportUrl = function () {
+                return new UriBuilder().path(this.transportServiceUrl.split('/')).path('project').build();
+            }.bind(this);
+
             return {
                 exportProject: exportProject,
+                getProjectImportUrl: getProjectImportUrl,
             };
         }];
     });
